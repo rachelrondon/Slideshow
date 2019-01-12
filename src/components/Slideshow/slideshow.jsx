@@ -40,23 +40,17 @@ class Slideshow extends Component {
     })
   }
 
-
-
-
   render() {
-    console.log('slideshow component is linked!');
 
-    console.log('this is the data');
-    console.log(this.state.data);
-
-    console.log('this is the id');
     console.log(this.state.id);
-
-    console.log('this is the img');
     console.log(this.state.img);
 
     return(
-      <div>
+      <div className="slideshow">
+      <Slide
+        key={this.state.id}
+        src={this.state.img}
+      />
       </div>
     );
   }
