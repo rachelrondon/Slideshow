@@ -617,6 +617,14 @@ pre tt:before,
 pre tt:after {
   content: '';
 }
+
+.arrow {
+  z-index: 999;
+  position: absolute;
+  color: white;
+  top: 20%;
+}
+
 @media only screen and (max-width: 480px) {
   html {
     font-size: 100%;

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Slide from '../Slide/slide';
+import NextArrow from '../NextArrow/nextarrow';
+import PreviousArrow from '../PreviousArrow/previousarrow';
 import './slideshow.css';
 
 class Slideshow extends Component {
@@ -11,7 +13,7 @@ class Slideshow extends Component {
         img: '',
         data: [],
         id: '',
-        isLoading: false
+        isLoading: false,
     };
   }
 
@@ -40,17 +42,37 @@ class Slideshow extends Component {
     })
   }
 
+  nextSlide = () => {
+    this.setState({
+      count: this.state.count + 1,
+      img: this.state.data[this.state.count + 1].urls.full,
+      id: this.state.data[this.state.count + 1].id
+    })
+  }
+
+  previousSlide = () => {
+    this.setState({
+      count: this.state.count - 1,
+      img: this.state.data[this.state.count - 1].urls.full,
+      id: this.state.data[this.state.count - 1].id
+    })
+  }
+
   render() {
-
-    console.log(this.state.id);
-    console.log(this.state.img);
-
     return(
       <div className="slideshow">
       <Slide
         key={this.state.id}
         src={this.state.img}
       />
+      <NextArrow
+        nextSlide={this.nextSlide}
+       />
+
+      <PreviousArrow
+        previousSlide={this.previousSlide}
+      />
+      
       </div>
     );
   }
