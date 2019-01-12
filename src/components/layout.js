@@ -1,10 +1,11 @@
 import React from 'react'
 import './layout.css'
+import Slideshow from './Slideshow/slideshow'
 
 const Layout = () => {
   return(
     <div>
-      <h1>React Slideshow</h1>
+      <Slideshow />
     </div>
   )
 }
