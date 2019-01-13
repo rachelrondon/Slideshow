@@ -4,7 +4,7 @@ import Slideshow from './Slideshow/slideshow'
 
 const Layout = () => {
   return(
-    <div>
+    <div className="slideshowLayout">
       <Slideshow />
     </div>
   )
