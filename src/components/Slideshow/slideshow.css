@@ -29,11 +29,6 @@
   border-radius: 50%;
 }
 
-.selectorContainer .activeSelector {
+.selectorContainer .active {
   background: #fff;
-  display: inline-block;
-  padding: 10px;
-  margin-right: 5px;
-  cursor: pointer;
-  border-radius: 50%;
 }

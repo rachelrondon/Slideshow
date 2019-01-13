@@ -1,15 +1,17 @@
 import React from 'react';
 import Selector from '../Selector/selector';
 
-const Selectors = ({ data, selectorClick, className }) => {
+const Selectors = ({ data, index, selectorClick }) => {
 
   const theSelectors = data.map((selector, i) => {
+    let active = ( i === index ) ? true : false
     return (
       <Selector
+          title="Slider"
           key={i}
           id={i}
+          active={active}
           selectorClick={selectorClick}
-          className={className}
       />
     )
   })

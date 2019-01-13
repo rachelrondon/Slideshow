@@ -12,7 +12,7 @@ const Slide = ({ src }) => {
 
 
   return (
-    <div className="slide" style={styles}>
+    <div className="slide" style={styles} >
     </div>
   )
 }

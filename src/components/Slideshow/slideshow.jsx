@@ -15,6 +15,7 @@ class Slideshow extends Component {
         data: [],
         id: '',
         isLoading: false,
+        index: 0,
     };
   }
 
@@ -23,12 +24,13 @@ class Slideshow extends Component {
       method: 'GET',
     })
     .then((results) => {
-      results.json().then((data) => {
+      results.json().then((data, index) => {
         this.setState({
           data: data,
           id: data[0].id,
           img: data[0].urls.full,
-          isLoading: true
+          isLoading: true,
+          index: 0
         })
       })
     })
@@ -47,35 +49,39 @@ class Slideshow extends Component {
     this.setState({
       count: this.state.count + 1,
       img: this.state.data[this.state.count + 1].urls.full,
-      id: this.state.data[this.state.count + 1].id
+      id: this.state.data[this.state.count + 1].id,
+      index: this.state.index + 1
     })
   }
 
   previousSlide = () => {
-    if (this.state.count = 1) {
-      this.setState({
-        count: 0
-      })
-    } else {
       this.setState({
         count: this.state.count - 1,
         img: this.state.data[this.state.count - 1].urls.full,
-        id: this.state.data[this.state.count - 1].id
+        id: this.state.data[this.state.count - 1].id,
+        index: this.state.index - 1
+      })
+    }
+
+  selectorClick = (i) => {
+    if (i === this.state.index) {
+      return
+    } else {
+      this.setState({
+        img: this.state.data[i].urls.full,
+        id: this.state.data[i].id,
+        index: i
       })
     }
   }
 
-  selectorClick = (i) => {
-      this.setState({
-        img: this.state.data[i].urls.full
-      })
-    }
-
 
   render() {
 
-    console.log('this is the count');
-    console.log(this.state.count);
+    const { active } = this.props
+
+    console.log('this is the index');
+    console.log(this.state.index);
 
     return(
       <div className="slideshow">
@@ -85,10 +91,9 @@ class Slideshow extends Component {
       />
 
       <Selectors
-        count={this.state.count}
+        index={this.state.index}
         data={this.state.data}
         selectorClick={this.selectorClick}
-        className="selector"
       />
 
       <NextArrow
