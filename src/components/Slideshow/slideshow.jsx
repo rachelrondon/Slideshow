@@ -19,7 +19,7 @@ class Slideshow extends Component {
   }
 
   componentDidMount() {
-    fetch('https://api.unsplash.com/photos/?client_id=e3d37a3f6d41c25020197820a612d8b7c0ff0c78f99edba1f82a38ee6eea87f1', {
+    fetch('https://api.unsplash.com/photos/?client_id=e3d37a3f6d41c25020197820a612d8b7c0ff0c78f99edba1f82a38ee6eea87f1&per_page=15', {
       method: 'GET',
     })
     .then((results) => {
