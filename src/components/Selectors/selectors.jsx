@@ -1,5 +1,6 @@
 import React from 'react';
 import Selector from '../Selector/selector';
+import './selectors.css';
 
 const Selectors = ({ data, index, selectorClick }) => {
 

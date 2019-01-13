@@ -20,7 +20,7 @@ class Slideshow extends Component {
   }
 
   componentDidMount() {
-    fetch('https://api.unsplash.com/photos/?client_id=e3d37a3f6d41c25020197820a612d8b7c0ff0c78f99edba1f82a38ee6eea87f1&per_page=15', {
+     fetch('https://api.unsplash.com/photos/?client_id=e3d37a3f6d41c25020197820a612d8b7c0ff0c78f99edba1f82a38ee6eea87f1&per_page=15', {
       method: 'GET',
     })
     .then((results) => {
@@ -77,32 +77,31 @@ class Slideshow extends Component {
 
 
   render() {
-
     const { active } = this.props
-
-    console.log('this is the index');
-    console.log(this.state.index);
 
     return(
       <div className="slideshow">
-      <Slide
-        key={this.state.id}
-        src={this.state.img}
-      />
+        <Slide
+          key={this.state.id}
+          src={this.state.img}
+        />
 
-      <Selectors
-        index={this.state.index}
-        data={this.state.data}
-        selectorClick={this.selectorClick}
-      />
+      <div className="slideSelectors">
+        <PreviousArrow
+          previousSlide={this.previousSlide}
+        />
 
-      <NextArrow
-        nextSlide={this.nextSlide}
-       />
+        <Selectors
+          index={this.state.index}
+          data={this.state.data}
+          selectorClick={this.selectorClick}
+        />
 
-      <PreviousArrow
-        previousSlide={this.previousSlide}
-      />
+        <NextArrow
+          nextSlide={this.nextSlide}
+         />
+      </div>
+
       </div>
     );
   }

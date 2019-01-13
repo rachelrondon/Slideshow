@@ -618,17 +618,6 @@ pre tt:after {
   content: '';
 }
 
-.arrow {
-  z-index: 999;
-  position: absolute;
-  color: white;
-}
-
-.slideshowLayout {
-  display: flex;
-  justify-content: center;
-}
-
 @media only screen and (max-width: 480px) {
   html {
     font-size: 100%;
