@@ -17,6 +17,8 @@ class Slideshow extends Component {
         isLoading: false,
         index: 0,
     };
+
+    this.handleScroll = this.handleScroll.bind(this);
   }
 
   componentDidMount() {
@@ -37,12 +39,24 @@ class Slideshow extends Component {
     .catch(err => {
       console.log('Error', err);
     });
+
+    window.addEventListener('scroll', this.handleScroll);
   }
 
   componentWillUnmount = () => {
+
     this.setState({
       isLoading: false
     })
+
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll(event) {
+    console.log('this is the handleScroll event', event);
+
+    horizontal = e.currentTarget.scrollLeft;
+    vertical = e.currentTarget.scrollTop; 
   }
 
   nextSlide = () => {
