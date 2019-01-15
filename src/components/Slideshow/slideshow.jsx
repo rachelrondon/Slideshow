@@ -17,8 +17,6 @@ class Slideshow extends Component {
         isLoading: false,
         index: 0,
     };
-
-    this.handleScroll = this.handleScroll.bind(this);
   }
 
   componentDidMount() {
@@ -48,24 +46,15 @@ class Slideshow extends Component {
     this.setState({
       isLoading: false
     })
-
-    window.removeEventListener('scroll', this.handleScroll);
-  }
-
-  handleScroll(event) {
-    console.log('this is the handleScroll event', event);
-
-      let horizontal = event.currentTarget.scrollLeft;
-      let vertical = event.currentTarget.scrollTop;
   }
 
   nextSlide = () => {
-    this.setState({
-      count: this.state.count + 1,
-      img: this.state.data[this.state.count + 1].urls.full,
-      id: this.state.data[this.state.count + 1].id,
-      index: this.state.index + 1
-    })
+      this.setState({
+        count: this.state.count + 1,
+        img: this.state.data[this.state.count + 1].urls.full,
+        id: this.state.data[this.state.count + 1].id,
+        index: this.state.index + 1
+      })
   }
 
   previousSlide = () => {
@@ -92,6 +81,12 @@ class Slideshow extends Component {
 
   render() {
     const { active } = this.props
+
+    console.log('this is the index');
+    console.log(this.state.index);
+
+    console.log('this is the data length');
+    console.log(this.state.data.length - 1);
 
     return(
       <div className="slideshow">
