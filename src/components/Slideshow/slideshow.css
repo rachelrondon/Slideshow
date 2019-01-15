@@ -40,3 +40,9 @@
 .selectorContainer .active {
   background: #fff;
 }
+
+@media (max-width: 768px) {
+  .slideshow {
+    width: 100%;
+  }
+}

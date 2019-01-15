@@ -55,8 +55,8 @@ class Slideshow extends Component {
   handleScroll(event) {
     console.log('this is the handleScroll event', event);
 
-    horizontal = e.currentTarget.scrollLeft;
-    vertical = e.currentTarget.scrollTop; 
+      let horizontal = event.currentTarget.scrollLeft;
+      let vertical = event.currentTarget.scrollTop;
   }
 
   nextSlide = () => {
