@@ -40,7 +40,6 @@ class Slideshow extends Component {
   }
 
   componentWillUnmount = () => {
-
     this.setState({
       isLoading: false
     })
@@ -80,10 +79,6 @@ class Slideshow extends Component {
 
 
   render() {
-
-    console.log(this.state.index);
-    console.log(this.state.data.length);
-
     return(
       <div className="slideshow">
         <Slide
@@ -91,25 +86,25 @@ class Slideshow extends Component {
           src={this.state.img}
         />
 
-      <div className="slideSelectors">
-        <PreviousArrow
-          previousSlide={this.previousSlide}
-        />
+        <div className="slideSelectors">
+          <PreviousArrow
+            previousSlide={this.previousSlide}
+          />
 
-        <Selectors
-          index={this.state.index}
-          data={this.state.data}
-          selectorClick={this.selectorClick}
-        />
+          <Selectors
+            index={this.state.index}
+            data={this.state.data}
+            selectorClick={this.selectorClick}
+          />
 
-        <NextArrow
-          nextSlide={this.nextSlide}
-         />
-      </div>
-
+          <NextArrow
+            nextSlide={this.nextSlide}
+           />
+        </div>
       </div>
     );
   }
+  
 }
 
 export default Slideshow;

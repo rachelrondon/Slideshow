@@ -9,8 +9,7 @@ const Slide = ({ src }) => {
     width: '100%',
     height: '100%'
   }
-
-
+  
   return (
     <div className="slide" style={styles} >
     </div>
