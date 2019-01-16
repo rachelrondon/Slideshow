@@ -37,8 +37,6 @@ class Slideshow extends Component {
     .catch(err => {
       console.log('Error', err);
     });
-
-    window.addEventListener('scroll', this.handleScroll);
   }
 
   componentWillUnmount = () => {
@@ -49,12 +47,14 @@ class Slideshow extends Component {
   }
 
   nextSlide = () => {
+    if (this.state.index < this.state.data.length - 1) {
       this.setState({
         count: this.state.count + 1,
         img: this.state.data[this.state.count + 1].urls.full,
         id: this.state.data[this.state.count + 1].id,
         index: this.state.index + 1
       })
+    }
   }
 
   previousSlide = () => {
@@ -64,7 +64,7 @@ class Slideshow extends Component {
         id: this.state.data[this.state.count - 1].id,
         index: this.state.index - 1
       })
-    }
+  }
 
   selectorClick = (i) => {
     if (i === this.state.index) {
@@ -80,13 +80,9 @@ class Slideshow extends Component {
 
 
   render() {
-    const { active } = this.props
 
-    console.log('this is the index');
     console.log(this.state.index);
-
-    console.log('this is the data length');
-    console.log(this.state.data.length - 1);
+    console.log(this.state.data.length);
 
     return(
       <div className="slideshow">
